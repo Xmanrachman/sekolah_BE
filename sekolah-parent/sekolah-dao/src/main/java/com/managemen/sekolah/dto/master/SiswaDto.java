@@ -65,8 +65,8 @@ public class SiswaDto {
 	@JsonProperty("no_rw")
 	private String noRw;
 	
-	@JsonProperty("no_rumah")
-	private String noRumah;
+	@JsonProperty("nomor_rumah")
+	private String nomorRumah;
 	
 
 }

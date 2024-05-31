@@ -8,8 +8,10 @@ import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.managemen.sekolah.doa.model.master.AlamatEntity;
 import com.managemen.sekolah.doa.model.master.GuruEntity;
 import com.managemen.sekolah.doa.model.master.SiswaEntity;
+import com.managemen.sekolah.doa.repository.AlamatRepository;
 import com.managemen.sekolah.doa.repository.SiswaRepository;
 import com.managemen.sekolah.dto.master.SiswaDto;
 import com.managemen.sekolah.mapper.SiswaMapper;
@@ -22,6 +24,8 @@ public class InquerySiswaService {
 	private SiswaRepository siswaRepository;
 	@Autowired
 	private SiswaMapper siswaMapper;
+	@Autowired
+	private AlamatRepository alamatRepo;
 	
 	public ResponseInquery inqueryAllSiswa() {
 		ResponseInquery responseInq = new ResponseInquery();
@@ -31,11 +35,11 @@ public class InquerySiswaService {
 		if (!listSiswaEntity.isEmpty()) {
 			List<Object> listSiswaObject = siswaMapper.inqueryAll(listSiswaEntity);
 
-			responseInq.setInfo("Data guru send succesfuly");
+			responseInq.setInfo("Data siswa send succesfuly");
 			responseInq.setStatus(HttpStatus.SC_OK);
 			responseInq.setContent(listSiswaObject);
 		} else {
-			responseInq.setInfo("Data items Empty");
+			responseInq.setInfo("Data siswa Empty");
 			responseInq.setStatus(HttpStatus.SC_BAD_REQUEST);
 			responseInq.setContent(new ArrayList<Object>());
 		}
@@ -49,14 +53,16 @@ public class InquerySiswaService {
 		if (!siswaDto.getNim().equals(0) || siswaDto.getNim() != null) {
 			Optional<SiswaEntity> siswaOpt = siswaRepository.findByNim(siswaDto.getNim());
 			if (siswaOpt.isPresent()) {
-				siswaEntity = siswaMapper.inquerySearchByNIm(siswaOpt.get());
-				responseInq.setInfo("Data items by code");
-				responseInq.setStatus(HttpStatus.SC_OK);
-				responseInq.setContentObj(siswaEntity);
-				return responseInq;
+				Optional<AlamatEntity> alamatOpt = alamatRepo.findBySiswaEntity(siswaOpt.get());
+				if (alamatOpt.isPresent())
+					siswaEntity = siswaMapper.inquerySearchByNIm(siswaOpt.get(), alamatOpt.get());
+					responseInq.setInfo("Data siswa by NIM");
+					responseInq.setStatus(HttpStatus.SC_OK);
+					responseInq.setContentObj(siswaEntity);
+					return responseInq;
 			}
 		}
-		responseInq.setInfo("Data items  not found");
+		responseInq.setInfo("Data siswa not found");
 		responseInq.setStatus(HttpStatus.SC_BAD_REQUEST);
 		responseInq.setContentObj(siswaEntity);
 

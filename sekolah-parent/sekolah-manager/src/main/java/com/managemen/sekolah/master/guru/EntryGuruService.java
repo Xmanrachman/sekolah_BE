@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.managemen.sekolah.doa.model.master.AlamatEntity;
 import com.managemen.sekolah.doa.model.master.GuruEntity;
-import com.managemen.sekolah.doa.model.master.SiswaEntity;
 import com.managemen.sekolah.doa.repository.AlamatRepository;
 import com.managemen.sekolah.doa.repository.GuruRepository;
 import com.managemen.sekolah.dto.master.GuruDto;
@@ -15,11 +14,9 @@ import com.managemen.sekolah.mapper.AlamatMapper;
 import com.managemen.sekolah.mapper.GuruMapper;
 import com.managemen.sekolah.response.GeneralResponse;
 
-
 @Service
 public class EntryGuruService {
 
-	
 	@Autowired
 	private AlamatRepository alamatRepository;
 
@@ -28,6 +25,7 @@ public class EntryGuruService {
 	
 	@Autowired
 	private GuruMapper guruMapper;
+	
 	@Autowired
 	private GuruRepository guruRepository;
 	

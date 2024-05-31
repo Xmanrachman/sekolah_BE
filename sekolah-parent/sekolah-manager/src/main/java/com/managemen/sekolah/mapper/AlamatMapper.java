@@ -11,13 +11,10 @@ import com.managemen.sekolah.dto.master.SiswaDto;
 @Component
 public class AlamatMapper {
 
-	
-	
 	public AlamatEntity entrySiswaAlamat(SiswaDto request, SiswaEntity siswaId) {
-		
+
 		AlamatEntity alamat = new AlamatEntity();
-		
-		
+
 		alamat.setJalanAlamat(request.getJalan());
 		alamat.setKota(request.getKota());
 		alamat.setProvinsi(request.getProvinsi());
@@ -26,17 +23,16 @@ public class AlamatMapper {
 		alamat.setKodePos(request.getKodePos());
 		alamat.setNoRW(request.getNoRw());
 		alamat.setNoRt(request.getNoRt());
-		alamat.setNomorRumah(request.getNoRumah());
+		alamat.setNomorRumah(request.getNomorRumah());
 		alamat.setSiswaEntity(siswaId);
-		
+
 		return alamat;
 	}
-	
-	
-public AlamatEntity entryGuruAlamat(GuruDto request, GuruEntity guruId) {
-		
+
+	public AlamatEntity entryGuruAlamat(GuruDto request, GuruEntity guruId) {
+
 		AlamatEntity alamat = new AlamatEntity();
-		
+
 		alamat.setJalanAlamat(request.getJalan());
 		alamat.setKota(request.getKota());
 		alamat.setProvinsi(request.getProvinsi());
@@ -45,9 +41,9 @@ public AlamatEntity entryGuruAlamat(GuruDto request, GuruEntity guruId) {
 		alamat.setKodePos(request.getKodePos());
 		alamat.setNoRW(request.getNoRw());
 		alamat.setNoRt(request.getNoRt());
-		alamat.setNomorRumah(request.getNoRumah());
+		alamat.setNomorRumah(request.getNomorRumah());
 		alamat.setGuruEntity(guruId);
-		
+
 		return alamat;
 	}
 }

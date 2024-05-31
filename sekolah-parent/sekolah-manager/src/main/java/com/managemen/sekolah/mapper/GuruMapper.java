@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.managemen.sekolah.constant.AppConstant;
 import com.managemen.sekolah.doa.model.audit.LogAudit;
+import com.managemen.sekolah.doa.model.master.AlamatEntity;
 import com.managemen.sekolah.doa.model.master.GuruEntity;
 import com.managemen.sekolah.dto.master.GuruDto;
 import com.managemen.sekolah.util.DateUtil;
@@ -70,27 +71,29 @@ public class GuruMapper {
 		 return guruList;
 	 }
 	 
-	 public List<Object> inquerySearchByKodeGuru(List<GuruEntity> request) {
-		 List<Object> guruList = new ArrayList<Object>();
+	 public GuruDto inquerySearchByKodeGuru(GuruEntity request, AlamatEntity requestAlamat) {
 		 
-		 for (GuruEntity guruData: request) {
 			 GuruDto guruResponseDto = new GuruDto();
 			 
-			 guruResponseDto.setIdGuru(guruData.getIdGuru());
-			 guruResponseDto.setNamaGuru(guruData.getNamaGuru());
-			 guruResponseDto.setJabatanGuru(guruData.getJabatanGuru());
-			 guruResponseDto.setJenisKelamin(guruData.getJenisKelamin());
-			 guruResponseDto.setTanggalLahir(guruData.getTanggalLahir());
-			 guruResponseDto.setTempatLahir(guruData.getTempatLahir());
-			 guruResponseDto.setTitlePendidikan(guruData.getTitlePendidikan());
-			 guruResponseDto.setUmur(guruData.getUmur());
+			 guruResponseDto.setIdGuru(request.getIdGuru());
+			 guruResponseDto.setNamaGuru(request.getNamaGuru());
+			 guruResponseDto.setJabatanGuru(request.getJabatanGuru());
+			 guruResponseDto.setJenisKelamin(request.getJenisKelamin());
+			 guruResponseDto.setTanggalLahir(request.getTanggalLahir());
+			 guruResponseDto.setTempatLahir(request.getTempatLahir());
+			 guruResponseDto.setTitlePendidikan(request.getTitlePendidikan());
+			 guruResponseDto.setUmur(request.getUmur());
 			 
-			 guruList.add(guruResponseDto);
-		 
+			 guruResponseDto.setJalan(requestAlamat.getJalanAlamat());
+			 guruResponseDto.setKota(requestAlamat.getKota());
+			 guruResponseDto.setProvinsi(requestAlamat.getProvinsi());
+			 guruResponseDto.setKecamatan(requestAlamat.getKecamatan());
+			 guruResponseDto.setKelurahan(requestAlamat.getKelurahan());
+			 guruResponseDto.setNoRt(requestAlamat.getNoRt());
+			 guruResponseDto.setNoRw(requestAlamat.getNoRW());
+			 guruResponseDto.setNomorRumah(requestAlamat.getNomorRumah());
 			 
-		 }
-		 
-		 return guruList;
+		 return guruResponseDto;
 	 }
 
 }

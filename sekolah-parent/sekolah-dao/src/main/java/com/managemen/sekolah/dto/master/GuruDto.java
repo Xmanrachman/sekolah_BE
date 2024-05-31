@@ -66,6 +66,6 @@ public class GuruDto {
 	private String noRw;
 	
 	@JsonProperty("nomor_rumah")
-	private String noRumah;
+	private String nomorRumah;
 	
 }

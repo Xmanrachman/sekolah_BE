@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.managemen.sekolah.constant.AppConstant;
 import com.managemen.sekolah.doa.model.audit.LogAudit;
+import com.managemen.sekolah.doa.model.master.AlamatEntity;
 import com.managemen.sekolah.doa.model.master.GuruEntity;
 import com.managemen.sekolah.doa.model.master.SiswaEntity;
 import com.managemen.sekolah.dto.master.GuruDto;
@@ -72,7 +73,7 @@ public class SiswaMapper {
 	
 	
 	 
-	 public SiswaDto inquerySearchByNIm(SiswaEntity request) {
+	 public SiswaDto inquerySearchByNIm(SiswaEntity request, AlamatEntity requestAlamat) {
 		
 			 SiswaDto siswaResponseDto = new SiswaDto();
 			 
@@ -82,6 +83,15 @@ public class SiswaMapper {
 			 siswaResponseDto.setTanggalLahir(request.getTanggalLahir());
 			 siswaResponseDto.setTempatLahir(request.getTempatLahir());
 			 siswaResponseDto.setUmur(request.getUmur());
+			 
+			 siswaResponseDto.setJalan(requestAlamat.getJalanAlamat());
+			 siswaResponseDto.setKota(requestAlamat.getKota());
+			 siswaResponseDto.setProvinsi(requestAlamat.getProvinsi());
+			 siswaResponseDto.setKecamatan(requestAlamat.getKecamatan());
+			 siswaResponseDto.setKelurahan(requestAlamat.getKelurahan());
+			 siswaResponseDto.setNoRt(requestAlamat.getNoRt());
+			 siswaResponseDto.setNoRw(requestAlamat.getNoRW());
+			 siswaResponseDto.setNomorRumah(requestAlamat.getNomorRumah());
 			 
 			 return siswaResponseDto;
 	 }

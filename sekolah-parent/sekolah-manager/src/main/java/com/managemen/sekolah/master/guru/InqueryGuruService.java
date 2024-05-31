@@ -8,7 +8,9 @@ import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.managemen.sekolah.doa.model.master.AlamatEntity;
 import com.managemen.sekolah.doa.model.master.GuruEntity;
+import com.managemen.sekolah.doa.repository.AlamatRepository;
 import com.managemen.sekolah.doa.repository.GuruRepository;
 import com.managemen.sekolah.dto.master.GuruDto;
 import com.managemen.sekolah.mapper.GuruMapper;
@@ -21,6 +23,8 @@ public class InqueryGuruService {
 	private GuruRepository guruRepository;
 	@Autowired
 	private GuruMapper guruMapper;
+	@Autowired
+	private AlamatRepository alamatRepo;
 	
 	
 	public ResponseInquery inqueryAllGuru() {
@@ -35,8 +39,9 @@ public class InqueryGuruService {
 			responseInq.setInfo("Data guru send succesfuly");
 			responseInq.setStatus(HttpStatus.SC_OK);
 			responseInq.setContent(listGuruObject);
+			
 		} else {
-			responseInq.setInfo("Data items Empty");
+			responseInq.setInfo("Data guru Empty");
 			responseInq.setStatus(HttpStatus.SC_BAD_REQUEST);
 			responseInq.setContent(new ArrayList<Object>());
 		}
@@ -45,19 +50,21 @@ public class InqueryGuruService {
 	
 	public ResponseInquery inqSearchByKodeGuru(GuruDto guruDto) {
 		ResponseInquery responseInq = new ResponseInquery();
-		List<Object> guruResponse = new ArrayList<>();
+		GuruDto guruResponse = null;
 		
 		if (!guruDto.getKodeGuru().equals(0) || guruDto.getKodeGuru() != null) {
-			Optional<List<GuruEntity>> guruOpt = guruRepository.findByKodeGuru(guruDto.getKodeGuru());
+			Optional<GuruEntity> guruOpt = guruRepository.findByKodeGuru(guruDto.getKodeGuru());
 			
 			if (guruOpt.isPresent()) {
-				guruResponse = guruMapper.inquerySearchByKodeGuru(guruOpt.get());
-				responseInq.setInfo("Data items by code");
-				responseInq.setStatus(HttpStatus.SC_OK);
-				responseInq.setContentObj(guruResponse);
+				Optional<AlamatEntity> alamatOpt = alamatRepo.findByGuruEntity(guruOpt.get());
+				if (alamatOpt.isPresent())
+					guruResponse = guruMapper.inquerySearchByKodeGuru(guruOpt.get(),alamatOpt.get());
+					responseInq.setInfo("Data Guru by kode guru");
+					responseInq.setStatus(HttpStatus.SC_OK);
+					responseInq.setContentObj(guruResponse);
 			}
 		} else {
-			responseInq.setInfo("Data items  not found");
+			responseInq.setInfo("Data Guru not found");
 			responseInq.setStatus(HttpStatus.SC_BAD_REQUEST);
 			responseInq.setContentObj(guruResponse);
 		}

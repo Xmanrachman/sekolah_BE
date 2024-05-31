@@ -13,6 +13,6 @@ import com.managemen.sekolah.doa.model.master.GuruEntity;
 public interface GuruRepository extends JpaRepository<GuruEntity, Integer>, JpaSpecificationExecutor<GuruEntity> {
 	
 	Optional<GuruEntity> findByIdGuru(Integer idGuru);
-	Optional<List<GuruEntity>> findByKodeGuru(String kodeGuru);
+	Optional<GuruEntity> findByKodeGuru(String kodeGuru);
 
 }
