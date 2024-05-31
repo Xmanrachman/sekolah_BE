@@ -1,0 +1,57 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 21
+Class-Path: sekolah-manager-0.0.1-SNAPSHOT.jar sekolah-dao-0.0.1-SNAPSHO
+ T.jar sekolah-common-0.0.1-SNAPSHOT.jar disconf-spring-boot-starter-1.0
+ .1.jar disconf-client-2.6.36.jar disconf-core-2.6.36.jar httpclient-4.5
+ .1.jar httpcore-4.4.16.jar commons-logging-1.2.jar zookeeper-3.3.6.jar 
+ log4j-1.2.15.jar mail-1.4.jar jline-0.9.94.jar junit-4.13.2.jar hamcres
+ t-core-2.2.jar gson-2.10.1.jar reflections-0.9.9-RC1.jar dom4j-1.6.1.ja
+ r xml-apis-1.0.b2.jar aspectjtools-1.9.22.jar shedlock-spring-4.27.0.ja
+ r shedlock-core-4.27.0.jar shedlock-provider-jdbc-template-4.27.0.jar s
+ pring-boot-starter-data-jpa-3.3.0.jar spring-boot-starter-aop-3.3.0.jar
+  spring-aop-6.1.8.jar aspectjweaver-1.9.22.jar spring-boot-starter-jdbc
+ -3.3.0.jar HikariCP-5.1.0.jar spring-jdbc-6.1.8.jar hibernate-core-6.5.
+ 2.Final.jar jakarta.persistence-api-3.1.0.jar jakarta.transaction-api-2
+ .0.1.jar jboss-logging-3.5.3.Final.jar hibernate-commons-annotations-6.
+ 0.6.Final.jar jandex-3.1.2.jar byte-buddy-1.14.16.jar jaxb-runtime-4.0.
+ 5.jar jaxb-core-4.0.5.jar angus-activation-2.0.2.jar txw2-4.0.5.jar ist
+ ack-commons-runtime-4.1.2.jar jakarta.inject-api-2.0.1.jar antlr4-runti
+ me-4.13.0.jar spring-data-jpa-3.3.0.jar spring-data-commons-3.3.0.jar s
+ pring-orm-6.1.8.jar spring-tx-6.1.8.jar jakarta.annotation-api-2.1.1.ja
+ r spring-aspects-6.1.8.jar spring-boot-starter-web-3.3.0.jar spring-boo
+ t-starter-3.3.0.jar spring-boot-3.3.0.jar spring-boot-autoconfigure-3.3
+ .0.jar spring-boot-starter-logging-3.3.0.jar logback-classic-1.5.6.jar 
+ logback-core-1.5.6.jar log4j-to-slf4j-2.23.1.jar log4j-api-2.23.1.jar j
+ ul-to-slf4j-2.0.13.jar snakeyaml-2.2.jar spring-boot-starter-json-3.3.0
+ .jar jackson-datatype-jdk8-2.17.1.jar jackson-datatype-jsr310-2.17.1.ja
+ r jackson-module-parameter-names-2.17.1.jar spring-boot-starter-tomcat-
+ 3.3.0.jar tomcat-embed-core-10.1.24.jar tomcat-embed-el-10.1.24.jar tom
+ cat-embed-websocket-10.1.24.jar spring-web-6.1.8.jar micrometer-observa
+ tion-1.13.0.jar micrometer-commons-1.13.0.jar spring-webmvc-6.1.8.jar s
+ pring-expression-6.1.8.jar commons-lang3-3.14.0.jar jakarta.xml.bind-ap
+ i-4.0.2.jar jakarta.activation-api-2.1.3.jar hamcrest-2.2.jar spring-co
+ re-6.1.8.jar spring-jcl-6.1.8.jar postgresql-42.7.3.jar checker-qual-3.
+ 42.0.jar lombok-1.18.32.jar spring-boot-configuration-processor-3.3.0.j
+ ar expiringmap-0.5.7.jar poi-4.1.0.jar commons-codec-1.16.1.jar commons
+ -collections4-4.3.jar commons-math3-3.6.1.jar poi-ooxml-4.1.0.jar poi-o
+ oxml-schemas-4.1.0.jar xmlbeans-3.1.0.jar commons-compress-1.18.jar cur
+ vesapi-1.06.jar javax.mail-1.6.2.jar activation-1.1.jar springfox-swagg
+ er2-2.9.2.jar swagger-annotations-1.5.20.jar swagger-models-1.5.20.jar 
+ jackson-annotations-2.17.1.jar springfox-spi-2.9.2.jar springfox-core-2
+ .9.2.jar springfox-schema-2.9.2.jar springfox-swagger-common-2.9.2.jar 
+ springfox-spring-web-2.9.2.jar guava-20.0.jar classmate-1.7.0.jar slf4j
+ -api-2.0.13.jar spring-plugin-core-1.2.0.RELEASE.jar spring-plugin-meta
+ data-1.2.0.RELEASE.jar mapstruct-1.2.0.Final.jar springfox-swagger-ui-2
+ .9.2.jar springfox-bean-validators-2.9.2.jar jjwt-0.9.1.jar jackson-dat
+ abind-2.17.1.jar jackson-core-2.17.1.jar thymeleaf-3.1.2.RELEASE.jar og
+ nl-3.3.4.jar javassist-3.29.0-GA.jar attoparser-2.0.7.RELEASE.jar unbes
+ cape-1.1.6.RELEASE.jar thymeleaf-spring5-3.0.11.RELEASE.jar freemarker-
+ 2.3.32.jar spring-context-support-6.1.8.jar spring-beans-6.1.8.jar spri
+ ng-context-6.1.8.jar spring-boot-starter-freemarker-3.3.0.jar tika-core
+ -2.4.1.jar commons-io-2.11.0.jar barbecue-1.5-beta1.jar core-3.3.0.jar 
+ javase-3.3.0.jar jcommander-1.48.jar jai-imageio-core-1.3.1.jar
+Implementation-Title: sekolah-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Main-Class: com.managemen.sekolah.SekolahServiceApplication
+Created-By: Maven Integration for Eclipse
+
