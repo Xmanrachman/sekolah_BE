@@ -1,19 +1,24 @@
-/**
+/**	
  * 
  */
 package com.managemen.sekolah.doa.model.master;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.managemen.sekolah.doa.model.audit.LogAudit;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +27,6 @@ import lombok.NoArgsConstructor;
 /**
  * 
  */
-
 @Data
 @Entity(name = "GuruEntity")
 @Table(name = "guru")
@@ -60,6 +64,9 @@ public class GuruEntity implements Serializable {
 	@Column(name = "title_pendidikan")
 	private String titlePendidikan;
 	
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinTable(name = "guru_matapelajaran")
+	private Set<MatapelajaranEntity> mataPelajaran = new HashSet<>();
 	
 	@Embedded
 	private LogAudit logsAudit;

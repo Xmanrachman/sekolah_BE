@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.managemen.sekolah.doa.model.master.AlamatEntity;
-import com.managemen.sekolah.doa.model.master.GuruEntity;
+
 import com.managemen.sekolah.doa.model.master.SiswaEntity;
 import com.managemen.sekolah.doa.repository.AlamatRepository;
 import com.managemen.sekolah.doa.repository.SiswaRepository;
