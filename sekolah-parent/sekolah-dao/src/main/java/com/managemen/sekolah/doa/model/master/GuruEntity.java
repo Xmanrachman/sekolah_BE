@@ -64,8 +64,7 @@ public class GuruEntity implements Serializable {
 	@Column(name = "title_pendidikan")
 	private String titlePendidikan;
 	
-	@ManyToMany(cascade = {CascadeType.ALL})
-	@JoinTable(name = "guru_matapelajaran")
+	@ManyToMany(mappedBy = "guruEntitys")
 	private Set<MatapelajaranEntity> mataPelajaran = new HashSet<>();
 	
 	@Embedded

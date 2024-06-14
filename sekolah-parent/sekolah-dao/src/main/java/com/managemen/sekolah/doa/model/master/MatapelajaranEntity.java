@@ -6,15 +6,20 @@ package com.managemen.sekolah.doa.model.master;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+
+import org.apache.commons.math3.analysis.function.Inverse;
+
 import com.managemen.sekolah.doa.model.audit.LogAudit;
 
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -47,9 +52,18 @@ public class MatapelajaranEntity implements Serializable {
 	@Column(name = "bobot_nilai_matapelajaran")
 	private Integer bobotNilaiMatapelajaran;
 	
-	@ManyToMany()
-	private Set<GuruEntity> guruEntitys = new HashSet<>();
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "matapelajaran_guru", 
+	joinColumns = @JoinColumn(name = "id_matapelajaran_rel", referencedColumnName = "id_matapelajaran"),
+	inverseJoinColumns  = @JoinColumn(name = "id_guru_rel", referencedColumnName = "id_guru"))
+	private Set<GuruEntity> guruEntitys;
 	 
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "matapelajaran_siswa",
+	joinColumns = @JoinColumn(name = "id_matapelajaran_rel", referencedColumnName = "id_matapelajaran"),
+	inverseJoinColumns = @JoinColumn(name = "id_siswa_rel", referencedColumnName = "id_siswa"))
+	private Set<SiswaEntity> sisawaEntitys;
 	
 	@Embedded
 	private LogAudit logsAudit;

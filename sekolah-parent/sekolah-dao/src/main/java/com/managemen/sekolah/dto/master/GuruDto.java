@@ -1,10 +1,12 @@
 package com.managemen.sekolah.dto.master;
 
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.managemen.sekolah.doa.model.master.MatapelajaranEntity;
 
 import lombok.Data;
 
@@ -67,5 +69,17 @@ public class GuruDto {
 	
 	@JsonProperty("nomor_rumah")
 	private String nomorRumah;
+	
+	@JsonProperty("matapelajaranEntity")
+	private List<MatapelajaranEntity> idMataPelajaranDto;
+	
+	
+	public List<MataPelajaranEntity> mataPelajaran() {
+		
+		
+	}
+	
+	
+	
 	
 }

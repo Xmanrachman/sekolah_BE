@@ -23,4 +23,10 @@ public class MatapelajaranDto {
 	@JsonProperty("kode_matapelajaran")
 	private Integer bobotNilaiMatapelajaran;
 	
+	@JsonProperty("id_guru")
+	private Integer idGuru;
+	
+	@JsonProperty("id_siswa")
+	private Integer idSiswa;
+	
 }

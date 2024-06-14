@@ -5,6 +5,8 @@ package com.managemen.sekolah.doa.model.master;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.managemen.sekolah.doa.model.audit.LogAudit;
 
@@ -54,6 +56,10 @@ public class SiswaEntity implements Serializable {
 	
 	@Column(name = "tanggal_lahir")
 	private Date tanggalLahir;
+	
+	@ManyToMany(mappedBy = "sisawaEntitys")
+	private Set<SiswaEntity> siswaRelation = new HashSet<>();
+	
 	
 	
 	@Embedded
